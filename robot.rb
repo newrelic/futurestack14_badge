@@ -17,11 +17,10 @@ HEIGHT = 176
 BLACK = 1
 WHITE = 0
 
-
 # You'll want to insert your agent URL here
 AGENT_URL = "https://agent.electricimp.com/REPLACEME/image"
 
-image = Magick::Image.read("cat.png") {
+image = Magick::Image.read("robot.png") {
   self.colorspace = Magick::GRAYColorspace
   self.image_type = Magick::BilevelType
   self.antialias = false

@@ -1,6 +1,6 @@
 ## FutureStack 14 Badge Firmware
 
-This firmware will turn your FutureStack badge into a simple NFC tag reader and screen target.  To get started, register an account with http://electricimp.com, BlinkUp your badge using the Electric Imp [Android](https://play.google.com/store/apps/details?id=com.electricimp.electricimp) or [iOS](https://itunes.apple.com/lb/app/electric-imp/id547133856?mt=8) mobile app, and create a new model using the IDE containing the code in device.nut and agent.nut.  Hit "Build and Run" and your badge should be ready to go.  Additionally, you can use cat.rb to push an image to your badge.
+This firmware will turn your FutureStack badge into a simple NFC tag reader and screen target.  To get started, register an account with http://electricimp.com, BlinkUp your badge using the Electric Imp [Android](https://play.google.com/store/apps/details?id=com.electricimp.electricimp) or [iOS](https://itunes.apple.com/lb/app/electric-imp/id547133856?mt=8) mobile app, and create a new model using the IDE containing the code in device.nut and agent.nut.  Hit "Build and Run" and your badge should be ready to go.  Additionally, you can use robot.rb to push an image to your badge.
 
 ## Other resources
 ### Electric Imp
