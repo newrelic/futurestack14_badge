@@ -18,6 +18,21 @@ Details on the flash memory chip on the badges can be found [here](http://www.ma
 ### Power
 Your badge is rechargeable via the micro USB port on the side.  It does not need to be on to charge.
 
+## Contributions
+Contributions are more than welcome. Bug reports with specific reproduction
+steps are great. If you have a code contribution you'd like to make, open a
+pull request with suggested code.
+
+Pull requests should:
+
+ * Clearly state their intent in the title
+ * Have a description that explains the need for the changes
+
+By contributing to this project you agree that you are granting New Relic a
+non-exclusive, non-revokable, no-cost license to use the code, algorithms,
+patents, and ideas in that code in our products if we so choose. You also agree
+the code is provided as-is and you provide no warranties as to its fitness or
+correctness for any purpose.
 
 ## License
 Portions of this code used with permission from [Javier Montaner](https://github.com/jmgjmg/eImpNFC).
