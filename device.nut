@@ -1618,6 +1618,7 @@ class Backend {
         
         local data = {
             voltage = battery.read_voltage(),
+            temp = therm.read_f(),
         }
         
         agent.send("screen", data);
