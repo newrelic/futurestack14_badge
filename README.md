@@ -10,6 +10,7 @@ This firmware will turn your FutureStack badge into a simple NFC tag reader and 
 ![phototransistor](https://www.evernote.com/shard/s203/sh/13c3f963-e924-422f-8d1d-96544596ed10/a80d69b1926e2dc751f863632668acdf/res/b600769f-ac7c-41df-9290-1ae1359aec00/skitch.png?resizeSmall&width=832)
 * Electric Imp has an excellent guide on the BlinkUp process [here](https://electricimp.com/docs/gettingstarted/1-blinkup/).
 * The badge's WiFi radio will only work on 2.4GHz networks.
+* See this [troubleshooting guide](https://electricimp.com/docs/troubleshooting/blinkup/) if you're having issues getting the badge online.
 
 ## Other resources
 ### Electric Imp
