@@ -1336,7 +1336,7 @@ class Epaper {
                 writer(0x00, BYTE);
               
                 // Odd pixels
-                for (local i = BYTESPERLINE - 1; i > -1; i--) {
+                for (local i = BYTESPERLINE - 1; i > -1 && i < data.len(); i--) {
                     pixels = (data[i]>>1) ^ inverse | 0xaa;
 
                     pixels = ((pixels & 0xc0) >> 6)
@@ -1357,7 +1357,7 @@ class Epaper {
                 scan_line_data[scan_pos] = 0x00;
               
                 // Even Pixels
-                for (local i = 0; i < BYTESPERLINE; i++) {
+                for (local i = 0; i < BYTESPERLINE && i < data.len(); i++) {
                     pixels = data[i] ^ inverse | 0xaa;
                     writer(pixels, BYTE);
                 }
@@ -1459,8 +1459,10 @@ class Epaper {
             
             while (block_begin < HEIGHT) {
                 for (local j = block_begin; j < block_end; j++) {
-                    data.seek(j * BYTESPERLINE);
-                    write_line(j, data.readblob(BYTESPERLINE), inverse, false);
+                    if (j*BYTESPERLINE + BYTESPERLINE < data.len()) {
+                      data.seek(j * BYTESPERLINE);
+                      write_line(j, data.readblob(BYTESPERLINE), inverse, false);
+                    }
                 }
                 
                 block_begin = block_begin + STEP;
