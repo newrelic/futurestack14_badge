@@ -36,6 +36,7 @@ class SpiFlash {
     static EXSO     = "\xC1"; // exit secured OTP
     static DP       = "\xB9"; // deep power down
     static RDP      = "\xAB"; // release from deep power down
+    static PAGESIZE = 256;
 
     // offsets for the record and playback sectors in memory
     // 64 blocks
@@ -125,20 +126,20 @@ class SpiFlash {
     function writeChunk(addr, data) {
         // separate the chunk into pages
         data.seek(0,'b');
-        for (local i = 0; i < data.len(); i+=256) {
+        for (local i = 0; i < data.len(); i+=PAGESIZE) {
             local leftInBuffer = data.len() - data.tell();
-            if ((addr+i % 256) + leftInBuffer >= 256) {
+            if ((addr+i % PAGESIZE) + leftInBuffer >= PAGESIZE) {
                 // Realign to the end of the page
-                local align = 256 - ((addr+i) % 256);
+                local align = PAGESIZE - ((addr+i) % PAGESIZE);
                 write((addr+i),data.readblob(align));
                 leftInBuffer -= align;
                 i += align;
                 if (leftInBuffer <= 0) break;
             }
-            if (leftInBuffer < 256) {
+            if (leftInBuffer < PAGESIZE) {
                 write((addr+i),data.readblob(leftInBuffer));
             } else {
-                write((addr+i),data.readblob(256));
+                write((addr+i),data.readblob(PAGESIZE));
             }
         }
     }
