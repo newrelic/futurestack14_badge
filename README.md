@@ -46,7 +46,7 @@ To install the gems needed for robot.rb:
 ```    
 You can push the robot.png image to your badge with the command: `$ ruby -r robot.rb`
 
-If you want to use your own image, just replace robot.png with your own black and white image. Very small images are best! You'll need to change the WIDTH and HEIGHT variables in robot.rb accordingly.
+If you want to use your own image, replace robot.png with your own black and white image. The e-ink screen of the badge is 264 x 176, so your image should fit within those dimensions.
 
 ## Contributions
 Contributions are more than welcome. Bug reports with specific reproduction
