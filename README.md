@@ -26,7 +26,7 @@ The NFC chip on the badges is an NXP PN532.  You can find the datasheet [here]( 
 Details on the flash memory chip on the badges can be found [here](http://www.macronix.com/Lists/Datasheet/Attachments/1610/MX25L8006E,%203V,%208Mb,%20v1.4.pdf).
 
 ### IO Expander
-Since the Imp is a little short on pins, the badge includes a handy IO expander ([datasheet](http://www.semtech.com/images/datasheet/sx150x_456.pdf)).  The unused pins of the IO expander are broken out on the side of the PCB.  The interrupt line on of this chip is connected to pin 1 of the Imp, which can be used for waking interrupts.
+Since the Imp is a little short on pins, the badge includes a handy IO expander ([datasheet](http://www.semtech.com/images/datasheet/sx150x_456.pdf)).  The unused pins of the IO expander are broken out on the side of the PCB.  The interrupt line of this chip is connected to pin 1 of the Imp, which can be used for waking interrupts.
 
 ### Power
 Your badge is rechargeable via the micro USB port on the side.  It does not need to be on to charge.  The 850mAh lithium polymer battery ([datasheet](https://www.sparkfun.com/datasheets/Batteries/063048%20Li-polymer.pdf)) is protected by an over/under charge and short protection circuit ([datasheet](http://dlnmh9ip6v2uc.cloudfront.net/datasheets/Prototyping/BatteryProtection.pdf)).
