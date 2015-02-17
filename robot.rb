@@ -24,7 +24,7 @@ image = Magick::Image.read("robot.png") {
   self.colorspace = Magick::GRAYColorspace
   self.image_type = Magick::BilevelType
   self.antialias = false
-}.first
+}.first.resize_to_fit(WIDTH, HEIGHT).extent(WIDTH, HEIGHT)
 
 image.rotate!(180)
 

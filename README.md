@@ -31,6 +31,23 @@ Since the Imp is a little short on pins, the badge includes a handy IO expander 
 ### Power
 Your badge is rechargeable via the micro USB port on the side.  It does not need to be on to charge.  The 850mAh lithium polymer battery ([datasheet](https://www.sparkfun.com/datasheets/Batteries/063048%20Li-polymer.pdf)) is protected by an over/under charge and short protection circuit ([datasheet](http://dlnmh9ip6v2uc.cloudfront.net/datasheets/Prototyping/BatteryProtection.pdf)).
 
+### Pushing an Image to Your Badge
+You can use robot.rb to push an image to your badge. You'll need to edit the AGENT_URL variable with your Electric Imp agent URL.
+
+robot.rb requires that the ImageMagick libraries are installed.
+* On Ubuntu: `$ sudo apt-get install libmagickwand-dev`
+* On CentOS: `$ yum install ImageMagick-devel`
+* On Mac, you can use Homebrew: `$ brew install imagemagick`
+
+To install the gems needed for robot.rb:
+```
+    $ gem install rmagick
+    $ gem install httparty
+```    
+You can push the robot.png image to your badge with the command: `$ ruby -r robot.rb`
+
+If you want to use your own image, replace robot.png with your own black and white image. The e-ink screen of the badge is 264 x 176, so your image should fit within those dimensions.
+
 ## Contributions
 Contributions are more than welcome. Bug reports with specific reproduction
 steps are great. If you have a code contribution you'd like to make, open a
