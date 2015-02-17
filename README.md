@@ -44,7 +44,7 @@ To install the gems needed for robot.rb:
     $ gem install rmagick
     $ gem install httparty
 ```    
-You can push the robot.png image to your badge with the command: `$ ruby -r robot.rb`
+You can push the robot.png image to your badge with the command: `$ ruby robot.rb`
 
 If you want to use your own image, replace robot.png with your own black and white image. The e-ink screen of the badge is 264 x 176, so your image should fit within those dimensions.
 
