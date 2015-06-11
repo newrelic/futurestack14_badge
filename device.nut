@@ -474,7 +474,7 @@ class SX1506 extends SX150x{
     }
 }
 
-class ExpGPIO{
+class ExpGPIO {
     _expander = null;  //Instance of an Expander class
     _gpio     = null;  //Pin number of this GPIO pin
     
@@ -483,14 +483,22 @@ class ExpGPIO{
         _gpio     = gpio;
     }
     
-    //Optional initial state (defaults to 0 just like the imp)
-    function configure(mode, callback = null, initialstate=0) {
+    // Optional initial state (defaults to 0 just like the imp)
+    function configure(mode, callback_initialstate = null) {
         // set the pin direction and configure the internal pullup resistor, if applicable
-        _expander.setPin(_gpio,initialstate);
         if (mode == DIGITAL_OUT) {
             _expander.setDir(_gpio,1);
             _expander.setPullUp(_gpio,0);
-        } else if (mode == DIGITAL_IN) {
+            if (callback_initialstate != null) {
+                _expander.setPin(_gpio, callback_initialstate);    
+            } else {
+                _expander.setPin(_gpio, 0);
+            }
+            
+            return this;
+        }
+            
+        if (mode == DIGITAL_IN) {
             _expander.setDir(_gpio,0);
             _expander.setPullUp(_gpio,0);
         } else if (mode == DIGITAL_IN_PULLUP) {
@@ -499,15 +507,17 @@ class ExpGPIO{
         }
         
         // configure the pin to throw an interrupt, if necessary
-        if (callback) {
+        if (typeof callback_initialstate == "function") {
             _expander.setIrqMask(_gpio,1);
             _expander.setIrqEdges(_gpio,1,1);
-            _expander.setCallback(_gpio,callback);            
+            _expander.setCallback(_gpio, callback_initialstate);
         } else {
             _expander.setIrqMask(_gpio,0);
             _expander.setIrqEdges(_gpio,0,0);
             _expander.setCallback(_gpio,null);
         }
+        
+        return this;
     }
     
     function write(state) { _expander.setPin(_gpio,state); }
